@@ -1,0 +1,26 @@
+# TRABAJO 1
+from abc import ABC
+
+class Estudiante(ABC):
+    def __init__(self, nombre, edad, curso):
+        self.nombre = nombre
+        self.edad = edad
+        self.grado = curso
+        
+class Alumno(Estudiante):
+    def __init__(self, nombre, edad, curso, carrera):
+        super().__init__(nombre, edad, curso)
+        self.carrera = carrera
+        
+    def mostrar_informacion(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, Nivel: Universitario, Carrera: {self.carrera}, Semestre: {self.grado}"
+    
+class EstudianteSecundaria(Estudiante):
+    def mostrar_informacion(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, Nivel: Secundaria, Grado: {self.grado}"
+    
+universitario = Alumno("CRISTIANO RONALDO ", 37, "7°", "Ingeniería de FUTBOL")
+secundaria = EstudianteSecundaria("Scarlett Johansson", 18, "10°")
+
+print(universitario.mostrar_informacion())
+print(secundaria.mostrar_informacion())
